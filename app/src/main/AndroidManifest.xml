@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.youmaidme">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -19,11 +21,20 @@
         <activity android:name=".Main_Activity">
 
         </activity>
-        <activity android:name=".LogIn_Activity">
-
+        <activity android:name=".LogIn_Activity"
+            android:label="Log In"
+            android:parentActivityName=".Main_Activity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.youmaidme.Main_Activity"
+                />
         </activity>
-        <activity android:name=".SignUp_Activity">
-
+        <activity android:name=".SignUp_Activity"
+            android:label="Sign Up"
+            android:parentActivityName=".LogIn_Activity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.youmaidme.LogIn_Activity"/>
         </activity>
     </application>
 
