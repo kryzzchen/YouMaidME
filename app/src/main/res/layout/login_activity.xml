@@ -4,7 +4,8 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LogIn_Activity">
+    tools:context=".LogIn_Activity"
+    android:background="@drawable/background_image">
 
     <include
         android:id="@+id/login_activity_toolbar"

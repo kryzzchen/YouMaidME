@@ -19,7 +19,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class SignUp_Activity extends AppCompatActivity implements View.OnClickListener {
+public class SignUp_Activity extends AppCompatActivity implements View.OnClickListener{
 
     private Button signup_activity_signup_btn;
     private EditText signup_activity_username_et;
@@ -107,4 +107,5 @@ public class SignUp_Activity extends AppCompatActivity implements View.OnClickLi
             registerUser();
         }
     }
+
 }
