@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.youmaidme">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -11,6 +11,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity
+            android:name=".Dashboard_Activity"
+            android:label="@string/title_activity_dashboard_"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name=".Splash_Activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -18,23 +22,22 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Main_Activity">
-
-        </activity>
-        <activity android:name=".LogIn_Activity"
+        <activity android:name=".Main_Activity" />
+        <activity
+            android:name=".LogIn_Activity"
             android:label="Log In"
             android:parentActivityName=".Main_Activity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.youmaidme.Main_Activity"
-                />
+                android:value="com.example.youmaidme.Main_Activity" />
         </activity>
-        <activity android:name=".SignUp_Activity"
+        <activity
+            android:name=".SignUp_Activity"
             android:label="Sign Up"
             android:parentActivityName=".LogIn_Activity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.youmaidme.LogIn_Activity"/>
+                android:value="com.example.youmaidme.LogIn_Activity" />
         </activity>
     </application>
 

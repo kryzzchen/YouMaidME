@@ -59,6 +59,7 @@
             android:layout_marginBottom="8dp"
             android:layout_below="@+id/login_activity_login_button_bt"/>
         <TextView
+            android:id="@+id/login_activity_forgot_password_tv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Forgot Password?"
