@@ -23,6 +23,8 @@ import com.google.firebase.auth.FirebaseUser;
 public class Dashboard_Activity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
 
+    //User Dashboard
+
     private TextView content_dashboard_welcome_user_tv;
     private Button content_dashboard_log_out_btn;
 
