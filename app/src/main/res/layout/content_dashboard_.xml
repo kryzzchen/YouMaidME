@@ -20,7 +20,6 @@
             android:id="@+id/content_dashboard_welcome_tv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Welcome"
             android:padding="12dp"
             android:ems="10"
             android:textStyle="bold"

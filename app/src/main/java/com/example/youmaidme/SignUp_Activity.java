@@ -1,6 +1,7 @@
 package com.example.youmaidme;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -43,6 +44,13 @@ public class SignUp_Activity extends AppCompatActivity implements View.OnClickLi
         action_bar.setDisplayHomeAsUpEnabled(true);
 
         firebaseAuth = FirebaseAuth.getInstance();
+
+        if(firebaseAuth.getCurrentUser() != null){
+            //dashboard activity here
+            progressDialog.dismiss();
+            finish();
+            startActivity(new Intent(getApplicationContext(), Dashboard_Activity.class));
+        }
 
         progressDialog = new ProgressDialog(this);
 
@@ -91,8 +99,10 @@ public class SignUp_Activity extends AppCompatActivity implements View.OnClickLi
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-                            Toast.makeText(SignUp_Activity.this, "Registered Successfully", Toast.LENGTH_SHORT).show();
                             progressDialog.dismiss();
+                            finish();
+                            startActivity(new Intent(getApplicationContext(), Dashboard_Activity.class));
+                            Toast.makeText(SignUp_Activity.this, "Registered Successfully", Toast.LENGTH_SHORT).show();
                         }else{
                             Toast.makeText(SignUp_Activity.this, "Could Not Register User", Toast.LENGTH_SHORT).show();
                             progressDialog.dismiss();

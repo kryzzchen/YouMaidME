@@ -1,9 +1,12 @@
 package com.example.youmaidme;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,14 +17,36 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class Dashboard_Activity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
+
+    private TextView content_dashboard_welcome_user_tv;
+    private Button content_dashboard_log_out_btn;
+
+    private FirebaseAuth firebaseAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dashboard_activity);
+
+        firebaseAuth = FirebaseAuth.getInstance();
+
+        if(firebaseAuth.getCurrentUser() == null){
+            finish();
+            startActivity(new Intent(this, LogIn_Activity.class));
+        }
+
+        FirebaseUser user = firebaseAuth.getCurrentUser();
+
+        content_dashboard_welcome_user_tv = (TextView) findViewById(R.id.content_dashboard_welcome_tv);
+        content_dashboard_log_out_btn = (Button) findViewById(R.id.content_dashboard_log_out_button_btn);
+
+        content_dashboard_welcome_user_tv.setText("Welcome " + user.getEmail());
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         FloatingActionButton fab = findViewById(R.id.fab);
@@ -39,6 +64,8 @@ public class Dashboard_Activity extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
+
+        content_dashboard_log_out_btn.setOnClickListener(this);
     }
 
     @Override
@@ -46,9 +73,12 @@ public class Dashboard_Activity extends AppCompatActivity
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
         }
+        /**
+         *else {
+         *super.onBackPressed();
+         *}
+         **/
     }
 
     @Override
@@ -96,5 +126,14 @@ public class Dashboard_Activity extends AppCompatActivity
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    public void onClick(View view) {
+        if(view == content_dashboard_log_out_btn){
+            firebaseAuth.signOut();
+            finish();
+            startActivity(new Intent(this, LogIn_Activity.class));
+        }
     }
 }

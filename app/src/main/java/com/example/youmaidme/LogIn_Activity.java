@@ -47,6 +47,9 @@ public class LogIn_Activity extends AppCompatActivity implements View.OnClickLis
 
         if(firebaseAuth.getCurrentUser() != null){
             //dashboard activity here
+            progressDialog.dismiss();
+            finish();
+            startActivity(new Intent(getApplicationContext(), Dashboard_Activity.class));
         }
 
         login_activity_username_et = (EditText) findViewById(R.id.login_activity_username_et);
@@ -87,6 +90,7 @@ public class LogIn_Activity extends AppCompatActivity implements View.OnClickLis
                         if(task.isSuccessful()){
                             //start the dashboard activity '
                             progressDialog.dismiss();
+                            finish();
                             startActivity(new Intent(getApplicationContext(), Dashboard_Activity.class));
                         }
                     }
