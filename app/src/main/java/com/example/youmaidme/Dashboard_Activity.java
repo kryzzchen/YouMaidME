@@ -101,6 +101,12 @@ public class Dashboard_Activity extends AppCompatActivity
         if (id == R.id.action_settings) {
             return true;
         }
+        if (id == R.id.action_logout){
+            firebaseAuth.signOut();
+            finish();
+            startActivity(new Intent(this, LogIn_Activity.class));
+            return true;
+        }
 
         return super.onOptionsItemSelected(item);
     }
