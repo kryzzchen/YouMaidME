@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -21,12 +20,11 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class Dashboard_Activity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
+        implements NavigationView.OnNavigationItemSelectedListener{
 
     //User Dashboard
 
     private TextView content_dashboard_welcome_user_tv;
-    private Button content_dashboard_log_out_btn;
 
     private FirebaseAuth firebaseAuth;
 
@@ -44,8 +42,7 @@ public class Dashboard_Activity extends AppCompatActivity
 
         FirebaseUser user = firebaseAuth.getCurrentUser();
 
-        content_dashboard_welcome_user_tv = (TextView) findViewById(R.id.content_dashboard_welcome_tv);
-        content_dashboard_log_out_btn = (Button) findViewById(R.id.content_dashboard_log_out_button_btn);
+        content_dashboard_welcome_user_tv = (TextView) findViewById(R.id.content_dashboard_welcome_user_tv);
 
         content_dashboard_welcome_user_tv.setText("Welcome " + user.getEmail());
 
@@ -66,8 +63,6 @@ public class Dashboard_Activity extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
-
-        content_dashboard_log_out_btn.setOnClickListener(this);
     }
 
     @Override
@@ -129,19 +124,14 @@ public class Dashboard_Activity extends AppCompatActivity
 
         } else if (id == R.id.nav_send) {
 
+        } else if (id == R.id.nav_log_out){
+            firebaseAuth.signOut();
+            finish();
+            startActivity(new Intent(this, LogIn_Activity.class));
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
-    }
-
-    @Override
-    public void onClick(View view) {
-        if(view == content_dashboard_log_out_btn){
-            firebaseAuth.signOut();
-            finish();
-            startActivity(new Intent(this, LogIn_Activity.class));
-        }
     }
 }

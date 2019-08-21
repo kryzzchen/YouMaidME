@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,6 +17,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -25,16 +25,17 @@ public class LogIn_Activity extends AppCompatActivity implements View.OnClickLis
 
     private TextView login_activity_create_new_account_tv, login_activity_forgot_password_tv;
     private Button login_activity_login_button_bt;
-    private EditText login_activity_password_et, login_activity_username_et;
+    private TextInputLayout login_activity_password_et, login_activity_username_et;
     private ProgressDialog progressDialog;
     private FirebaseAuth firebaseAuth;
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_activity);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.login_activity_toolbar);
+        toolbar = findViewById(R.id.login_activity_toolbar);
         setSupportActionBar(toolbar);
 
         ActionBar action_bar = getSupportActionBar();
@@ -52,8 +53,8 @@ public class LogIn_Activity extends AppCompatActivity implements View.OnClickLis
             startActivity(new Intent(getApplicationContext(), Dashboard_Activity.class));
         }
 
-        login_activity_username_et = (EditText) findViewById(R.id.login_activity_username_et);
-        login_activity_password_et = (EditText) findViewById(R.id.login_activity_password_et);
+        login_activity_username_et = findViewById(R.id.login_activity_username_et);
+        login_activity_password_et = findViewById(R.id.login_activity_password_et);
         login_activity_login_button_bt = (Button) findViewById(R.id.login_activity_login_button_bt);
         login_activity_create_new_account_tv = (TextView) findViewById(R.id.login_activity_create_new_account_tv);
         login_activity_forgot_password_tv = (TextView) findViewById(R.id.login_activity_forgot_password_tv);
@@ -63,20 +64,35 @@ public class LogIn_Activity extends AppCompatActivity implements View.OnClickLis
         login_activity_forgot_password_tv.setOnClickListener(this);
     }
 
-    private void userLogin() {
-        String email = login_activity_username_et.getText().toString().trim();
-        String password = login_activity_password_et.getText().toString().trim();
+
+    private boolean validateEmail(){
+        String email = login_activity_username_et.getEditText().getText().toString().trim();
 
         if(TextUtils.isEmpty(email)){
-            //if email is empty
-            Toast.makeText(this, "Please enter email", Toast.LENGTH_SHORT).show();
-            return;
+            login_activity_username_et.setError("Email can't be empty");
+            return false;
+        }else{
+            login_activity_username_et.setError(null);
+            return true;
         }
+    }
+
+    private boolean validatePassword(){
+        String password = login_activity_password_et.getEditText().getText().toString().trim();
+
         if(TextUtils.isEmpty(password)){
-            //if password is empty
-            Toast.makeText(this, "Please enter password", Toast.LENGTH_SHORT).show();
-            return;
+            login_activity_password_et.setError("Password can't be empty");
+            return false;
+        }else {
+            login_activity_password_et.setError(null);
+            return true;
         }
+    }
+
+    private void userLogin() {
+        String email = login_activity_username_et.getEditText().getText().toString().trim();
+        String password = login_activity_password_et.getEditText().getText().toString().trim();
+
 
         progressDialog.setMessage("Signing In");
         progressDialog.show();
@@ -108,7 +124,9 @@ public class LogIn_Activity extends AppCompatActivity implements View.OnClickLis
             Toast.makeText(this, "Forgot Password", Toast.LENGTH_SHORT).show();
         }
         if (view == login_activity_login_button_bt){
-            //Send to dashboard activity
+            if(!validateEmail() | !validatePassword()){
+                return;
+            }
             userLogin();
         }
     }
