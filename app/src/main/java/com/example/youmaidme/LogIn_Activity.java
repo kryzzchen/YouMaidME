@@ -11,7 +11,6 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
@@ -38,9 +37,9 @@ public class LogIn_Activity extends AppCompatActivity implements View.OnClickLis
         toolbar = findViewById(R.id.login_activity_toolbar);
         setSupportActionBar(toolbar);
 
-        ActionBar action_bar = getSupportActionBar();
+        //ActionBar action_bar = getSupportActionBar();
 
-        action_bar.setDisplayHomeAsUpEnabled(true);
+        //action_bar.setDisplayHomeAsUpEnabled(true);
 
         progressDialog = new ProgressDialog(this);
 

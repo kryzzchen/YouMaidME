@@ -7,11 +7,11 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
@@ -27,6 +27,7 @@ public class SignUp_Activity extends AppCompatActivity implements View.OnClickLi
     private EditText signup_activity_email_et;
     private EditText signup_activity_password_et;
     private EditText signup_activity_location_et;
+    private TextView signup_activity_has_account_tv;
 
     private ProgressDialog progressDialog;
 
@@ -40,8 +41,8 @@ public class SignUp_Activity extends AppCompatActivity implements View.OnClickLi
         //Support toolbar back button
         Toolbar toolbar = (Toolbar) findViewById(R.id.signup_activity_toolbar);
         setSupportActionBar(toolbar);
-        ActionBar action_bar = getSupportActionBar();
-        action_bar.setDisplayHomeAsUpEnabled(true);
+        //ActionBar action_bar = getSupportActionBar();
+        //action_bar.setDisplayHomeAsUpEnabled(true);
 
         firebaseAuth = FirebaseAuth.getInstance();
 
@@ -59,8 +60,10 @@ public class SignUp_Activity extends AppCompatActivity implements View.OnClickLi
         signup_activity_password_et = (EditText) findViewById(R.id.signup_activity_password_et);
         signup_activity_location_et = (EditText) findViewById(R.id.signup_activity_location_et);
         signup_activity_signup_btn = (Button) findViewById(R.id.signup_activity_signup_button_bt);
+        signup_activity_has_account_tv = (TextView) findViewById(R.id.signup_activty_old_account);
 
         signup_activity_signup_btn.setOnClickListener(this);
+        signup_activity_has_account_tv.setOnClickListener(this);
     }
 
     private void registerUser(){
@@ -115,6 +118,10 @@ public class SignUp_Activity extends AppCompatActivity implements View.OnClickLi
     public void onClick(View view) {
         if(view == signup_activity_signup_btn){
             registerUser();
+        }
+        if(view == signup_activity_has_account_tv){
+            finish();
+            startActivity(new Intent(getApplicationContext(), LogIn_Activity.class));
         }
     }
 

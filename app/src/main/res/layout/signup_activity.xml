@@ -68,8 +68,30 @@
             android:drawablePadding="10dp"
             android:singleLine="true"
             android:layout_marginBottom="5dp"
-            android:layout_below="@+id/signup_activity_password_et"/>
+            android:layout_below="@+id/signup_activity_password_et"/> '
 
+        <LinearLayout
+            android:layout_below="@+id/signup_activity_location_et"
+            android:id="@+id/signup_activity_checkBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <CheckBox
+                android:id="@+id/signup_activity_employer_checkbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Employer"
+                android:padding="15dp"/>
+
+            <CheckBox
+                android:id="@+id/signup_activity_maid_checkbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Maid"
+                android:padding="15dp"/>
+        </LinearLayout>
         <Button
             android:id="@+id/signup_activity_signup_button_bt"
             android:layout_width="match_parent"
@@ -78,7 +100,15 @@
             android:textStyle="bold"
             android:layout_marginBottom="8dp"
             android:background="@drawable/button_style"
-            android:layout_below="@+id/signup_activity_location_et"/>
+            android:layout_below="@+id/signup_activity_checkBox"/>
+        <TextView
+            android:id="@+id/signup_activty_old_account"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Already have an account? Log In here."
+            android:textAlignment="center"
+            android:padding="12dp"
+            android:layout_below="@+id/signup_activity_signup_button_bt"/>
 
     </RelativeLayout>
 </RelativeLayout>

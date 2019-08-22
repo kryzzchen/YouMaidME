@@ -12,24 +12,17 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".Dashboard_Activity"
-            android:label="@string/title_activity_dashboard_"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".Splash_Activity">
+            android:name=".Splash_Activity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Main_Activity" />
         <activity
             android:name=".LogIn_Activity"
-            android:label="Log In"
-            android:parentActivityName=".Main_Activity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.youmaidme.Main_Activity" />
+            android:label="Log In">
         </activity>
         <activity
             android:name=".SignUp_Activity"
@@ -39,6 +32,10 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.youmaidme.LogIn_Activity" />
         </activity>
+        <activity
+            android:name=".Dashboard_Activity"
+            android:label="@string/title_activity_dashboard_"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
