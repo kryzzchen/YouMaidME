@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,16 +16,15 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class SignUp_Activity extends AppCompatActivity implements View.OnClickListener{
 
     private Button signup_activity_signup_btn;
-    private EditText signup_activity_username_et;
-    private EditText signup_activity_email_et;
-    private EditText signup_activity_password_et;
-    private EditText signup_activity_location_et;
+    private TextInputLayout signup_activity_username_et,signup_activity_email_et;
+    private TextInputLayout signup_activity_location_et,signup_activity_password_et;
     private TextView signup_activity_has_account_tv;
 
     private ProgressDialog progressDialog;
@@ -55,10 +53,10 @@ public class SignUp_Activity extends AppCompatActivity implements View.OnClickLi
 
         progressDialog = new ProgressDialog(this);
 
-        signup_activity_email_et = (EditText) findViewById(R.id.signup_activity_email_et);
-        signup_activity_username_et = (EditText) findViewById(R.id.signup_activity_username_et);
-        signup_activity_password_et = (EditText) findViewById(R.id.signup_activity_password_et);
-        signup_activity_location_et = (EditText) findViewById(R.id.signup_activity_location_et);
+        signup_activity_email_et = findViewById(R.id.signup_activity_email_et);
+        signup_activity_username_et = findViewById(R.id.signup_activity_username_et);
+        signup_activity_password_et = findViewById(R.id.signup_activity_password_et);
+        signup_activity_location_et = findViewById(R.id.signup_activity_location_et);
         signup_activity_signup_btn = (Button) findViewById(R.id.signup_activity_signup_button_bt);
         signup_activity_has_account_tv = (TextView) findViewById(R.id.signup_activty_old_account);
 
@@ -66,33 +64,56 @@ public class SignUp_Activity extends AppCompatActivity implements View.OnClickLi
         signup_activity_has_account_tv.setOnClickListener(this);
     }
 
-    private void registerUser(){
-        String username = signup_activity_username_et.getText().toString().trim();
-        String email = signup_activity_email_et.getText().toString().trim();
-        String password = signup_activity_password_et.getText().toString().trim();
-        String location = signup_activity_location_et.getText().toString().trim();
+    private boolean validateUsername(){
+        String username = signup_activity_username_et.getEditText().getText().toString().trim();
 
         if(TextUtils.isEmpty(username)){
             //if username is empty
-            Toast.makeText(this, "Please enter username", Toast.LENGTH_SHORT).show();
-            return;
+            signup_activity_username_et.setError("Enter Username");
+            return false;
+        } else {
+            signup_activity_username_et.setError(null);
+            return true;
         }
-        if(TextUtils.isEmpty(email)){
-            //if email is empty
-            Toast.makeText(this, "Please enter email", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        if(TextUtils.isEmpty(password)){
-            //if password is empty
-            Toast.makeText(this, "Please enter password", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        if(TextUtils.isEmpty(location)){
-            //if location is empty
-            Toast.makeText(this, "Please enter location", Toast.LENGTH_SHORT).show();
-            return;
-        }
+    }
+    private boolean validateEmail(){
+        String email = signup_activity_email_et.getEditText().getText().toString().trim();
 
+        if(TextUtils.isEmpty(email)){
+            signup_activity_email_et.setError("Enter Email");
+            return false;
+        } else{
+            signup_activity_email_et.setError(null);
+            return true;
+        }
+    }
+    private boolean validatePassword(){
+        String password = signup_activity_password_et.getEditText().getText().toString().trim();
+
+        if(TextUtils.isEmpty(password)){
+            signup_activity_password_et.setError("Enter Password");
+            return false;
+        } else {
+            signup_activity_password_et.setError(null);
+            return true;
+        }
+    }
+    private boolean validateLocation(){
+        String location = signup_activity_location_et.getEditText().getText().toString().trim();
+
+        if(TextUtils.isEmpty(location)){
+            signup_activity_location_et.setError("Enter Location");
+            return false;
+        } else {
+            signup_activity_location_et.setError(null);
+            return true;
+        }
+    }
+    private void registerUser(){
+        String username = signup_activity_username_et.getEditText().getText().toString().trim();
+        String email = signup_activity_email_et.getEditText().getText().toString().trim();
+        String password = signup_activity_password_et.getEditText().getText().toString().trim();
+        String location = signup_activity_location_et.getEditText().getText().toString().trim();
 
         progressDialog.setMessage("Completing Registration");
         progressDialog.show();
@@ -117,6 +138,9 @@ public class SignUp_Activity extends AppCompatActivity implements View.OnClickLi
     @Override
     public void onClick(View view) {
         if(view == signup_activity_signup_btn){
+            if(!validateUsername() | !validateEmail() | !validatePassword() | !validateLocation()){
+                return;
+            }
             registerUser();
         }
         if(view == signup_activity_has_account_tv){

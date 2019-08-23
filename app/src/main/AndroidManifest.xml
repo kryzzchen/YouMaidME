@@ -26,11 +26,11 @@
         </activity>
         <activity
             android:name=".SignUp_Activity"
-            android:label="Sign Up"
-            android:parentActivityName=".LogIn_Activity">
+            android:label="Sign Up">
+            <!--android:parentActivityName=".LogIn_Activity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.youmaidme.LogIn_Activity" />
+                android:value="com.example.youmaidme.LogIn_Activity" />-->
         </activity>
         <activity
             android:name=".Dashboard_Activity"
