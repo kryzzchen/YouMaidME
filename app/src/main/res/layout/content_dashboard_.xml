@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".Dashboard_Activity"
+    tools:context=".maid_ui_activitis.Dashboard_Activity"
     tools:showIn="@layout/app_bar_dashboard_">
 
 
