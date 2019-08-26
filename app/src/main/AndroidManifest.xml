@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.youmaidme">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -20,24 +22,24 @@
         </activity>
         <activity
             android:name=".LogIn_Activity"
-            android:label="Log In"></activity>
+            android:label="Log In" />
+        <activity android:name=".Register_As_Activity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait"/>
         <activity
-            android:name=".SignUp_Activity"
-            android:label="Sign Up">
-
-            <!--
-            android:parentActivityName=".LogIn_Activity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.youmaidme.LogIn_Activity" />
-            -->
+            android:name=".Employee_Registration_Activity"
+            android:label="Employee Registration"
+            android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".maid_ui_activitis.Dashboard_Activity"
+            android:name=".Employer_Registration_Activity"
+            android:label="Employer Registration"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".maid_ui_activities.Dashboard_Activity"
             android:label="@string/title_activity_dashboard_"
             android:theme="@style/AppTheme.NoActionBar" />
     </application>
-
-    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

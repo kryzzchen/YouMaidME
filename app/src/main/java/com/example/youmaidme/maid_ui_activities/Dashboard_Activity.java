@@ -1,4 +1,4 @@
-package com.example.youmaidme.maid_ui_activitis;
+package com.example.youmaidme.maid_ui_activities;
 
 import android.content.Intent;
 import android.os.Bundle;

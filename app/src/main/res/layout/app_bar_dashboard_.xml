@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".maid_ui_activitis.Dashboard_Activity">
+    tools:context=".maid_ui_activities.Dashboard_Activity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"

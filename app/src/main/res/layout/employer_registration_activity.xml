@@ -7,7 +7,7 @@
 
 
     <include layout="@layout/toolbar"
-        android:id="@+id/signup_activity_toolbar"/>
+        android:id="@+id/employer_activity_toolbar"/>
 
     <RelativeLayout
         android:layout_width="wrap_content"
@@ -17,7 +17,7 @@
         android:layout_marginRight="20dp">
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/signup_activity_username_et"
+            android:id="@+id/employer_activity_username_et"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Username"
@@ -32,8 +32,8 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/signup_activity_email_et"
-            android:layout_below="@id/signup_activity_username_et"
+            android:id="@+id/employer_activity_email_et"
+            android:layout_below="@id/employer_activity_username_et"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Email"
@@ -49,8 +49,8 @@
 
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/signup_activity_password_et"
-            android:layout_below="@id/signup_activity_email_et"
+            android:id="@+id/employer_activity_password_et"
+            android:layout_below="@id/employer_activity_email_et"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Password"
@@ -66,8 +66,8 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/signup_activity_location_et"
-            android:layout_below="@id/signup_activity_password_et"
+            android:id="@+id/employer_activity_location_et"
+            android:layout_below="@id/employer_activity_password_et"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Location"
@@ -80,30 +80,25 @@
                 android:singleLine="true"/>
         </com.google.android.material.textfield.TextInputLayout>
 
-        <LinearLayout
-            android:layout_below="@+id/signup_activity_location_et"
-            android:id="@+id/signup_activity_checkBox"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/employer_activity_phone_number_et"
+            android:layout_below="@id/employer_activity_location_et"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center">
+            android:hint="Phone Number"
+            app:errorEnabled="true"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
-            <CheckBox
-                android:id="@+id/signup_activity_employer_checkbox"
-                android:layout_width="wrap_content"
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Employer"
-                android:padding="15dp"/>
+                android:singleLine="true"
+                android:inputType="phone"
+                android:maxLength="11"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-            <CheckBox
-                android:id="@+id/signup_activity_maid_checkbox"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Maid"
-                android:padding="15dp"/>
-        </LinearLayout>
         <Button
-            android:id="@+id/signup_activity_signup_button_bt"
+            android:id="@+id/employer_activity_signup_button_bt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Sign Up"
@@ -111,15 +106,15 @@
             android:textStyle="bold"
             android:layout_marginBottom="8dp"
             android:background="@drawable/button_style"
-            android:layout_below="@+id/signup_activity_checkBox"/>
+            android:layout_below="@+id/employer_activity_phone_number_et"/>
         <TextView
-            android:id="@+id/signup_activty_old_account"
+            android:id="@+id/employer_activty_old_account"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Already have an account? Log In here."
             android:textAlignment="center"
             android:padding="12dp"
-            android:layout_below="@+id/signup_activity_signup_button_bt"/>
+            android:layout_below="@+id/employer_activity_signup_button_bt"/>
 
     </RelativeLayout>
 </RelativeLayout>

@@ -14,7 +14,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import com.example.youmaidme.maid_ui_activitis.Dashboard_Activity;
+import com.example.youmaidme.maid_ui_activities.Dashboard_Activity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputLayout;
@@ -108,6 +108,9 @@ public class LogIn_Activity extends AppCompatActivity implements View.OnClickLis
                             progressDialog.dismiss();
                             finish();
                             startActivity(new Intent(getApplicationContext(), Dashboard_Activity.class));
+                        } else {
+                            login_activity_username_et.setError("Invalid Email");
+                            login_activity_password_et.setError("Invalid Password");
                         }
                     }
                 });
@@ -115,19 +118,17 @@ public class LogIn_Activity extends AppCompatActivity implements View.OnClickLis
 
     @Override
     public void onClick(View view) {
-        if (view == login_activity_create_new_account_tv) {
-            finish();
-            startActivity(new Intent(LogIn_Activity.this, SignUp_Activity.class));
-        }
-        if (view == login_activity_forgot_password_tv) {
-            //forgot password
-            Toast.makeText(this, "Forgot Password", Toast.LENGTH_SHORT).show();
-        }
         if (view == login_activity_login_button_bt){
             if(!validateEmail() | !validatePassword()){
                 return;
             }
             userLogin();
+        } else if (view == login_activity_create_new_account_tv) {
+            finish();
+            startActivity(new Intent(LogIn_Activity.this, Register_As_Activity.class));
+        } else if (view == login_activity_forgot_password_tv) {
+            //forgot password
+            Toast.makeText(this, "Forgot Password", Toast.LENGTH_SHORT).show();
         }
     }
 }
