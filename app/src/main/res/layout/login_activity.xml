@@ -30,7 +30,7 @@
             android:layout_below="@id/login_activity_logo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Email"
+            android:hint="@string/email"
             app:errorEnabled="true"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
@@ -47,7 +47,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:passwordToggleEnabled="true"
-            android:hint="Password"
+            android:hint="@string/password"
             app:errorEnabled="true"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
@@ -61,7 +61,7 @@
             android:id="@+id/login_activity_login_button_bt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Log In"
+            android:text="@string/login"
             android:textColor="#FFF"
             android:layout_marginBottom="8dp"
             android:textStyle="bold"
@@ -71,7 +71,7 @@
             android:id="@+id/login_activity_create_new_account_tv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Create New Account"
+            android:text="@string/createnewaccount"
             android:textAlignment="center"
             android:layout_marginBottom="8dp"
             android:padding="5dp"
@@ -80,7 +80,7 @@
             android:id="@+id/login_activity_forgot_password_tv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Forgot Password?"
+            android:text="@string/forgotpassword"
             android:textAlignment="center"
             android:layout_marginBottom="8dp"
             android:padding="5dp"

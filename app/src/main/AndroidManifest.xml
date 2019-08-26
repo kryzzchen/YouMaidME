@@ -22,18 +22,18 @@
         </activity>
         <activity
             android:name=".LogIn_Activity"
-            android:label="Log In" />
+            android:label="@string/login" />
         <activity android:name=".Register_As_Activity"
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait"/>
         <activity
             android:name=".Employee_Registration_Activity"
-            android:label="Employee Registration"
+            android:label="@string/employeeregistration"
             android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".Employer_Registration_Activity"
-            android:label="Employer Registration"
+            android:label="@string/employerregistration"
             android:screenOrientation="portrait">
         </activity>
         <activity

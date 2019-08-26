@@ -23,7 +23,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAlignment="center"
-            android:text="EMPLOYER"
+            android:text="@string/employer"
             android:layout_marginBottom="50dp"/>
 
         <ImageView
@@ -37,7 +37,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAlignment="center"
-            android:text="EMPLOYEE"
+            android:text="@string/employee"
             android:layout_marginBottom="50dp"/>
 
     </LinearLayout>

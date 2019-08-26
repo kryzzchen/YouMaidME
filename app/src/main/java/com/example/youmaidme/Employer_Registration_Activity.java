@@ -70,7 +70,7 @@ public class Employer_Registration_Activity extends AppCompatActivity implements
         signup_activity_phone_number_et = findViewById(R.id.employer_activity_phone_number_et);
 
         signup_activity_signup_btn = (Button) findViewById(R.id.employer_activity_signup_button_bt);
-        signup_activity_has_account_tv = (TextView) findViewById(R.id.employer_activty_old_account);
+        signup_activity_has_account_tv = (TextView) findViewById(R.id.employer_activity_old_account);
 
         signup_activity_signup_btn.setOnClickListener(this);
         signup_activity_has_account_tv.setOnClickListener(this);

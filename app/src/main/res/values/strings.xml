@@ -15,4 +15,21 @@
     <string name="menu_share">Share</string>
     <string name="menu_send">Send</string>
     <string name="menu_log_out">Log Out</string>
+
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="username">Username</string>
+    <string name="location">Location</string>
+    <string name="phonenumber">Phone Number</string>
+    <string name="signup">Sign Up</string>
+    <string name="login">Log In</string>
+    <string name="forgotpassword">Forgot Password?</string>
+    <string name="createnewaccount">Create New Account</string>
+    <string name="alreadyhaveanaccount">Already have an account? Log In here.</string>
+
+    <string name="employer">EMPLOYER</string>
+    <string name="employee">EMPLOYEE</string>
+
+    <string name="employerregistration">Employer Registration</string>
+    <string name="employeeregistration">Employee Registration</string>
 </resources>
