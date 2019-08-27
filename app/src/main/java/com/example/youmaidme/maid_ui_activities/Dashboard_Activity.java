@@ -13,6 +13,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.example.youmaidme.Client_Profile_Activity;
 import com.example.youmaidme.LogIn_Activity;
 import com.example.youmaidme.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -113,17 +114,17 @@ public class Dashboard_Activity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_home) {
+        if (id == R.id.nav_profile) {
+            Intent intToMain = new Intent(Dashboard_Activity.this, Client_Profile_Activity.class);
+            startActivity(intToMain);
 
-        } else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.nav_notification) {
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.nav_search) {
 
-        } else if (id == R.id.nav_tools) {
+        } else if (id == R.id.nav_contact) {
 
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
+        } else if (id == R.id.nav_help) {
 
         } else if (id == R.id.nav_log_out){
             firebaseAuth.signOut();
